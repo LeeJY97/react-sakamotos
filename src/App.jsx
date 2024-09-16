@@ -6,19 +6,21 @@ function App() {
   return (
     <div className="App">
       <h1>React Event Bus Toast Example</h1>
-      <button onClick={() => showToast({ message: "오", time: 1000 })}>
-        Show Toast
+      <button onClick={() => showToast({ message: "오", time: 100000 })}>
+        오
       </button>
       <button
         onClick={() =>
           showToast({
             message: "구매완료",
-            time: 1000,
+            time: 3000,
             position: "bottom-right",
+            theme: "warning",
+            showProgress: true,
           })
         }
       >
-        222
+        구매완료
       </button>
     </div>
   );

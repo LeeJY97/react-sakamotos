@@ -16,7 +16,7 @@
 }
 .top-left {
   top: 20px;
-  right: auto;  
+  right: auto;
   bottom: auto;
   left: 20px;
 }
@@ -35,15 +35,36 @@
 
 .toast {
   display: flex;
+  position: relative;
   align-items: center;
   justify-content: space-between;
-  background-color: #333;
-  color: white;
   padding: 10px 15px;
   border-radius: 5px;
   min-width: 200px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
   animation: slideIn 0.3s ease-out;
+}
+
+.toast-progress-bar {
+  background-color: blue;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  height: 3px;
+  width: 100%;
+  /* transition: width 3s ease; */
+}
+
+.default {
+  background-color: #333;
+  color: white;
+}
+
+.warning {
+  background-color: red;
+  color: white;
 }
 
 .toast-close {

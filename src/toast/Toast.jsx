@@ -15,12 +15,9 @@ import { createPortal } from "react-dom";
 // progressbar
 // 로딩 (promise Pending, reject, resolve)
 
-const Toast = ({
-  message = "토스트 맛있겟다",
-  time = 100000,
-  position = "top-right",
-}) => {
+const Toast = () => {
   const [toasts, setToasts] = useState([]);
+  const [progressWidth, setProgressWidth] = useState(100);
 
   useEffect(() => {
     const handleToastEvent = (toast) => {
@@ -35,17 +32,35 @@ const Toast = ({
 
     return () => unsubscribe();
   }, []);
-  // const toastRoot = document.getElementById("toast-root");
-  // 여기에 position을 넣어야 하나 ?
 
-  console.log("toasts", toasts);
+  setTimeout(() => {
+    setProgressWidth(0);
+  }, 1000);
+
+  const defaultTheme = "default";
+
   return createPortal(
-    <div className={`toast-container ${position}`}>
-      {toasts.map((toast, index) => (
-        <div key={index} className={`toast`}>
-          {toast.message}
-        </div>
-      ))}
+    <div className={`toast-container`}>
+      {toasts.map((toast, index) => {
+        console.log("toast", toast);
+        return (
+          <div
+            key={index}
+            className={`toast ${toast.theme ? toast.theme : defaultTheme}`}
+          >
+            {toast.message}
+            {toast.showProgress && (
+              <div
+                className="toast-progress-bar"
+                style={{
+                  transition: `width ${toast.time / 1000}s`,
+                  width: `${progressWidth}%`,
+                }}
+              ></div>
+            )}
+          </div>
+        );
+      })}
     </div>,
     document.body
   );
