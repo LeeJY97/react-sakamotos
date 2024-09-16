@@ -20,10 +20,13 @@ const Toast = () => {
 
   useEffect(() => {
     const handleToastEvent = (toast) => {
-      setToasts((prevToasts) => [...prevToasts, { id: Date.now(), ...toast }]);
+      const id = Date.now();
+
+      setToasts((prevToasts) => [...prevToasts, { id, ...toast }]);
 
       setTimeout(() => {
-        setToasts((prevToasts) => prevToasts.slice(1));
+        // setToasts((prevToasts) => prevToasts.slice(1));
+        setToasts((prevToasts) => prevToasts.filter((t) => t.id !== id));
       }, toast.time);
     };
 
