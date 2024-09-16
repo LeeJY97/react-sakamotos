@@ -11,16 +11,24 @@
 .top-right {
   top: 20px;
   right: 20px;
+  bottom: auto;
+  left: auto;
 }
 .top-left {
   top: 20px;
+  right: auto;  
+  bottom: auto;
   left: 20px;
 }
 .bottom-right {
-  bottom: 20px;
+  top: auto;
   right: 20px;
+  bottom: 20px;
+  left: auto;
 }
 .bottom-left {
+  top: auto;
+  right: auto;
   bottom: 20px;
   left: 20px;
 }
