@@ -40,9 +40,9 @@ const Toast = ({
 
   console.log("toasts", toasts);
   return createPortal(
-    <div className={`toast-container`}>
+    <div className={`toast-container ${position}`}>
       {toasts.map((toast, index) => (
-        <div key={index} className={`toast ${toast.position}`}>
+        <div key={index} className={`toast`}>
           {toast.message}
         </div>
       ))}
