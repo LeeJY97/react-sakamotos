@@ -1,5 +1,8 @@
 const EventBus = () => {
   const topics = new Map();
+  {
+    "SHOW_TOAST": [event1, event2]
+  }
 
   const subscribe = (topic, listener) => {
     if (!topics.has(topic)) {
