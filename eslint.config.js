@@ -33,7 +33,10 @@ export default [
         'warn',
         { allowConstantExport: true },
       ],
-      "react-hooks/exhaustive-deps": "off"
+      "react-hooks/exhaustive-deps": "off",
+      "react/prop-types": "off"
+
+
     },
   },
 ]

@@ -6,7 +6,7 @@ function App() {
   return (
     <div className="App">
       <h1>React Event Bus Toast Example</h1>
-      <button onClick={() => showToast({ message: "오", time: 100000 })}>
+      <button onClick={() => showToast({ message: "오", time: 10000 })}>
         오
       </button>
       <button
