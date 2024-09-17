@@ -2,7 +2,7 @@ import "./toast.css";
 import { useEffect, useState } from "react";
 import EventBus from "../pubsub/eventBus";
 import { createPortal } from "react-dom";
-
+import { SET_POSITION } from "./util/position";
 // 기존 토스트 라이브러리가 제공하는 기능은 무조건 있어야함
 // +@ (1차)
 // 이미지나 css를 커스텀할 수 있는 기능 (width, height 포함)
@@ -19,15 +19,36 @@ const Toast = ({
   message = "토스트 맛있겟다",
   time = 100000,
   position = "top-right",
+  right,
+  bottom
 }) => {
-  const [toasts, setToasts] = useState([]);
+  const [toasts, setToasts] = useState(
+    SET_POSITION.reduce((acc, pos) => {
+      acc[pos.position] = [];
+      return acc;
+    }, {})
+  );
 
   useEffect(() => {
     const handleToastEvent = (toast) => {
-      setToasts((prevToasts) => [...prevToasts, { id: Date.now(), ...toast }]);
-
+      const newToast = { id: Date.now(), ...toast };
+      // 추가
+      setToasts((prevToasts) => {
+        const updatedToasts = {...prevToasts};
+        updatedToasts[toast.position] = [
+          ...updatedToasts[toast.position],
+          newToast,
+        ]
+        return updatedToasts
+      });
+      // 삭제
       setTimeout(() => {
-        setToasts((prevToasts) => prevToasts.slice(1));
+        setToasts((prevToasts) => {
+          const updatedToasts = {...prevToasts};
+          updatedToasts[toast.position] = updatedToasts[toast.position]
+          .filter(t => t.id !== newToast.id);
+          return updatedToasts;
+        })
       }, toast.time);
     };
 
@@ -40,12 +61,19 @@ const Toast = ({
 
   console.log("toasts", toasts);
   return createPortal(
-    <div className={`toast-container ${position}`}>
-      {toasts.map((toast, index) => (
-        <div key={index} className={`toast`}>
-          {toast.message}
-        </div>
-      ))}
+    <div className="toast-wrap">
+      {Object.keys(toasts).map((positionKey) => {
+        const positionToasts = toasts[positionKey];
+        return positionToasts.length > 0 ? (
+          <div className={`toast-container ${positionKey}`} key={positionKey}>
+            {positionToasts.map((toast) => (
+              <div className="toast" key={toast.id}>
+                {toast.message}
+              </div>
+            ))}
+          </div>
+        ) : null;
+      })}
     </div>,
     document.body
   );
