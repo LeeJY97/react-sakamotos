@@ -8,59 +8,119 @@ function App() {
       <h1>React Event Bus Toast Example</h1>
       <button
         onClick={() =>
-          showToast({ message: "default!", time: 6000, showProgress: true })
-        }
-      >
-        default
-      </button>
-      <button
-        onClick={() =>
           showToast({
-            message: "warning!",
-            time: 5000,
+            message: "top-right",
+            position: "top-right",
+            time: 1000,
+            showProgress: true,
             theme: "warning",
-            showProgress: true,
-            // bg: true,
           })
         }
       >
-        warning
+        top-right
       </button>
       <button
         onClick={() =>
           showToast({
-            message: "error!",
-            time: 5000,
+            message: "top-right",
+            position: "top-right",
+            time: 3000,
+            showProgress: false,
             theme: "error",
-            showProgress: true,
           })
         }
       >
-        error
+        top-right
       </button>
       <button
         onClick={() =>
           showToast({
-            message: "success!",
-            time: 5000,
-            theme: "success",
-            showProgress: true,
+            message: "top-center",
+            position: "top-center",
+            time: 1000,
           })
         }
       >
-        success
+        top-center
       </button>
       <button
         onClick={() =>
           showToast({
-            message: "feed!",
-            time: 5000,
-            theme: "feed",
-            showProgress: true,
+            message: "top-left",
+            position: "top-left",
+            time: 1000,
           })
         }
       >
-        feed
+        top-left
+      </button>
+
+      <button
+        onClick={() =>
+          showToast({
+            message: "center-right",
+            position: "center-right",
+            time: 1000,
+          })
+        }
+      >
+        center-right
+      </button>
+      <button
+        onClick={() =>
+          showToast({
+            message: "center-center",
+            position: "center-center",
+            time: 10000,
+          })
+        }
+      >
+        center-center
+      </button>
+      <button
+        onClick={() =>
+          showToast({
+            message: "center-left",
+            position: "center-left",
+            time: 1000,
+          })
+        }
+      >
+        center-left
+      </button>
+
+      <button
+        onClick={() =>
+          showToast({
+            message: "bottom-right",
+            position: "bottom-right",
+            time: 1000,
+          })
+        }
+      >
+        bottom-right
+      </button>
+      <button
+        onClick={() =>
+          showToast({
+            message: "bottom-center",
+            position: "bottom-center",
+            time: 1000,
+          })
+        }
+      >
+        bottom-center
+      </button>
+      <button
+        onClick={() =>
+          showToast({
+            message: "bottom-left",
+            position: "bottom-left",
+            time: 1000,
+          })
+        }
+      >
+        bottom-left
       </button>
     </div>
   );
