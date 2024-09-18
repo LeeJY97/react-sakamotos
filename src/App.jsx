@@ -1,25 +1,21 @@
 import React from "react";
 import Toast from "./toast/Toast";
 import { showToast } from "./toast/showToast";
-import MarkDown from "./MarkDown";
 
-function App() {  
+function App() {
   return (
     <div className="App">
       <h1>React Event Bus Toast Example</h1>
 
-      <div>
-        
-      </div>
-      
-      <div className="exampleWrap">
+      <div></div>
 
+      <div className="exampleWrap">
         <div className="exampleBox exampleBox01">
           <h2>POSITION</h2>
           <div className="example">
             <dl>
               <dt>TOP</dt>
-              <dd>     
+              <dd>
                 <button
                   onClick={() =>
                     showToast({
@@ -29,7 +25,7 @@ function App() {
                   }
                 >
                   left
-                </button>         
+                </button>
                 <button
                   onClick={() =>
                     showToast({
@@ -91,7 +87,7 @@ function App() {
 
             <dl>
               <dt>BOTTOM</dt>
-              <dd>           
+              <dd>
                 <button
                   onClick={() =>
                     showToast({
@@ -127,8 +123,8 @@ function App() {
           </div>
         </div>
         <div className="exampleBox exampleBox02">
-        <h2>OPTION</h2>
-          <div className="example">            
+          <h2>OPTION</h2>
+          <div className="example">
             <dl>
               <dt>CONFIRM</dt>
               <dd>
@@ -162,7 +158,7 @@ function App() {
                   }
                 >
                   progress
-                </button>                
+                </button>
               </dd>
             </dl>
             <dl>
@@ -229,7 +225,7 @@ function App() {
                 >
                   icon (url, size)
                 </button>
-                <button 
+                <button
                   onClick={() =>
                     showToast({
                       position: "top-center",
@@ -246,7 +242,7 @@ function App() {
                 >
                   progress color
                 </button>
-                <button 
+                <button
                   onClick={() =>
                     showToast({
                       position: "top-center",
@@ -254,7 +250,7 @@ function App() {
                       showProgress: true,
                       time: 100000,
                       custom: {
-                        progress: {                          
+                        progress: {
                           height: "10px",
                         },
                       },
@@ -265,11 +261,11 @@ function App() {
                 </button>
               </dd>
             </dl>
-          </div>          
+          </div>
         </div>
         <div className="exampleBox exampleBox03">
-        <h2>TYPE</h2>
-          <div className="example">            
+          <h2>TYPE</h2>
+          <div className="example">
             <dl>
               <dt>SUCCESS</dt>
               <dd>
@@ -346,11 +342,9 @@ function App() {
                 </button>
               </dd>
             </dl>
-          </div>          
-        </div>        
+          </div>
+        </div>
       </div>
-
-
     </div>
   );
 }
