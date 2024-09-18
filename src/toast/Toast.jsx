@@ -130,19 +130,56 @@ const Toast = ({ toast, onRemove }) => {
 
   const toastClass = getToastClass();
 
+  const getBoxStyle = () => {
+    if (!toast.custom) return {};
+    return { ...toast.custom.box };
+  };
+
+  const getFontStyle = () => {
+    if (!toast.custom) return {};
+    return {
+      color: toast.custom.contents.color,
+      fontSize: toast.custom.contents.fontSize,
+    };
+  };
+
+  const getProgressStyle = () => {
+    if (!toast.custom) return {};
+    delete toast.custom.progress.width;
+    return { ...toast.custom.progress };
+  };
+
+  const getImgStyle = () => {
+    if (!toast.custom) return {};
+    return {};
+  };
+
+  const boxStyle = getBoxStyle();
+  const fontStyle = getFontStyle();
+  const progressStyle = getProgressStyle();
+  const imgStyle = getImgStyle();
+  // const imgUrl = 삼항연산자
+
   return (
     // <div className={`toast ${toast.theme ? toast.theme : defaultTheme}`}>
-    <div className={`toast ${toastClass}`} onClick={onRemove}>
+    <div
+      className={`toast ${toastClass}`}
+      onClick={onRemove}
+      style={{ ...boxStyle }}
+    >
       <div>
         <img className="icon" src={errorIcon}></img>
       </div>
-      {toast.message}
+      <div>
+        <span style={{ ...fontStyle }}>{toast.message}</span>
+      </div>
       {toast.showProgress && (
         <div
           className="toast-progress-bar"
           style={{
             transition: `width ${toast.time / 1000}s ease`,
             width: `${progressWidth}%`,
+            ...progressStyle,
           }}
         ></div>
       )}
