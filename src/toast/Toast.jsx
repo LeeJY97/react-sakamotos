@@ -110,8 +110,7 @@ const Toast = ({ toast, onRemove }) => {
   useEffect(() => {
     setProgressWidth(0);
   }, []);
-
-  console.log("totototototos ==>", toast);
+  
   const getToastClass = () => {
     return toast.bg ? `${toast.theme}-bg` : toast.theme;
 
@@ -130,7 +129,6 @@ const Toast = ({ toast, onRemove }) => {
   };
 
   const toastClass = getToastClass();
-  console.log(toast);
 
   const getBoxStyle = () => {
     if (!toast.custom) return {};
@@ -165,14 +163,14 @@ const Toast = ({ toast, onRemove }) => {
   return (
     // <div className={`toast ${toast.theme ? toast.theme : defaultTheme}`}>
     <div
-      className={`toast ${toastClass}`}
+      className={`toast ${toastClass ? `${toastClass}` : ""} ${toast.confirm ? "toast-confirm" : ""}`}
       onClick={onRemove}
       style={{ ...boxStyle }}
     >
       <div>
         <img className="icon" src={iconResult(toast.theme)}/>
       </div>
-      <div>
+      <div className="toast-confirm-message">
         <span style={{ ...fontStyle }}>{toast.message}</span>
       </div>
       {toast.showProgress && (
@@ -186,22 +184,23 @@ const Toast = ({ toast, onRemove }) => {
         ></div>
       )}
       {toast.confirm && (
-        <div>
-          <span
+        <div className="toast-btn-area">
+          <button
+            className="btn-yes"
             onClick={() => {
               toast.confirm(true);
             }}
           >
-            예{" "}
-          </span>
-          <span
+            <span>예</span>
+          </button>
+          <button
+            className="btn-no"
             onClick={() => {
               toast.confirm(false);
             }}
           >
-            {" "}
-            아니오
-          </span>
+            <span>아니오</span>
+          </button>
         </div>
       )}
     </div>

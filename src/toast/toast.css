@@ -83,6 +83,85 @@
   background: #fff;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);  
 }
+.toast-confirm {
+  flex-direction: column;
+  padding: 30px 15px 0;
+}
+.toast-confirm .toast-btn-area {
+  display: flex;
+  width: 100%;    
+  border-top: 1px solid #e5e5e5;
+  box-sizing: border-box;
+}
+.toast-confirm .toast-confirm-message {
+  margin: 10px 0 20px;
+}
+.toast-confirm .toast-btn-area button {
+  position: relative;
+  flex: 1;
+  min-height: 30px;
+  border: none;
+  cursor: pointer;
+  background: transparent;
+  padding: 15px 0;
+  box-sizing: border-box;
+}
+.toast-confirm .toast-btn-area button:after {
+  content: '';
+  position: absolute;
+  top: -1px;
+  width: 0;
+  height: 1px;
+  transition: all .5s ease;
+}
+.toast-confirm .toast-btn-area button:first-child:before {
+  content: ''; 
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 1px;
+  height: 50%;
+  background: #e5e5e5;
+  transform: translateY(-50%);
+}
+.toast-confirm .toast-btn-area button span {
+  font-size: 13px;
+  font-weight: 500;
+}
+.toast-confirm .toast-btn-area button.btn-yes:after {
+  right: 0;
+  background: #20c997;
+}
+.toast-confirm .toast-btn-area button.btn-yes span {
+  background: url("./icons/confirmY.png") no-repeat center left;
+  background-size: 18px;
+  padding: 0 0 0 23px;
+}
+.toast-confirm .toast-btn-area button.btn-yes:hover:after {
+  right: auto;  
+  left: 0;
+  width: 100%;
+}
+.toast-confirm .toast-btn-area button.btn-yes:hover span {
+  color: #20c997;
+}
+.toast-confirm .toast-btn-area button.btn-no span {
+  background: url("./icons/confirmX.png") no-repeat center left;
+  background-size: 15px;
+  padding: 0 0 0 20px;
+}
+.toast-confirm .toast-btn-area button.btn-no:after {
+  left: 0;
+  background: #bf0426;  
+}
+.toast-confirm .toast-btn-area button.btn-no:hover span {
+  color: #bf0426;
+}
+.toast-confirm .toast-btn-area button.btn-no:hover:after {
+  left: auto;
+  right: 0;
+  width: 100%;  
+}
 .top-left .toast, .center-left .toast, .bottom-left .toast {
   animation: slideRightToLeft 0.3s ease-out;
 }

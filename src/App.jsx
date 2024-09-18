@@ -22,10 +22,7 @@ function App() {
                 <button
                   onClick={() =>
                     showToast({
-                      message: `<div style='display:flex; color:red'>
-                        <div style=''>11</div>
-                        <div style=''>22</div>
-                      </div>`,
+                      message: "top-left",
                       position: "top-left",
                     })
                   }
@@ -37,7 +34,6 @@ function App() {
                     showToast({
                       message: "top-center",
                       position: "top-center",
-                      time: 1000,
                     })
                   }
                 >
@@ -48,9 +44,6 @@ function App() {
                     showToast({
                       message: "top-right",
                       position: "top-right",
-                      time: 3000,
-                      showProgress: false,
-                      theme: "error",
                     })
                   }
                 >
@@ -77,7 +70,6 @@ function App() {
                     showToast({
                       message: "center-center",
                       position: "center-center",
-                      time: 2000,
                     })
                   }
                 >
@@ -88,7 +80,6 @@ function App() {
                     showToast({
                       message: "center-right",
                       position: "center-right",
-                      time: 1000,
                     })
                   }
                 >
@@ -105,7 +96,6 @@ function App() {
                     showToast({
                       message: "bottom-left",
                       position: "bottom-left",
-                      time: 10000,
                     })
                   }
                 >
@@ -116,7 +106,6 @@ function App() {
                     showToast({
                       message: "bottom-center",
                       position: "bottom-center",
-                      time: 1000,
                     })
                   }
                 >
@@ -127,7 +116,6 @@ function App() {
                     showToast({
                       message: "bottom-right",
                       position: "bottom-right",
-                      
                     })
                   }
                 >
@@ -140,6 +128,25 @@ function App() {
         <div className="exampleBox exampleBox02">
         <h2>OPTION</h2>
           <div className="example">            
+            <dl>
+              <dt>CONFIRM</dt>
+              <dd>
+                <button
+                  onClick={() =>
+                    showToast({
+                      message: "confirm",
+                      position: "top-center",
+                      showProgress: true,
+                      confirm: (confirm) => {
+                        // console.log("confirm", confirm);
+                      },
+                    })
+                  }
+                >
+                  confirm
+                </button>
+              </dd>
+            </dl>
             <dl>
               <dt>PROGRESS</dt>
               <dd>
@@ -163,9 +170,8 @@ function App() {
                 <button
                   onClick={() =>
                     showToast({
-                      message: "progress",
+                      message: "TIME 3000s",
                       position: "top-center",
-                      showProgress: true,
                       time: 3000,
                     })
                   }
@@ -256,7 +262,7 @@ function App() {
               </dd>
             </dl>
           </div>          
-        </div>
+        </div>        
       </div>
     </div>
   );
