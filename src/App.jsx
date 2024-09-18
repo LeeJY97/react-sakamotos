@@ -8,23 +8,59 @@ function App() {
       <h1>React Event Bus Toast Example</h1>
       <button
         onClick={() =>
-          showToast({ message: "오", time: 3000, showProgress: true })
+          showToast({ message: "default!", time: 6000, showProgress: true })
         }
       >
-        오
+        default
       </button>
       <button
         onClick={() =>
           showToast({
-            message: "구매완료",
-            time: 1000,
-            position: "bottom-right",
+            message: "warning!",
+            time: 5000,
             theme: "warning",
+            showProgress: true,
+            // bg: true,
+          })
+        }
+      >
+        warning
+      </button>
+      <button
+        onClick={() =>
+          showToast({
+            message: "error!",
+            time: 5000,
+            theme: "error",
             showProgress: true,
           })
         }
       >
-        구매완료
+        error
+      </button>
+      <button
+        onClick={() =>
+          showToast({
+            message: "success!",
+            time: 5000,
+            theme: "success",
+            showProgress: true,
+          })
+        }
+      >
+        success
+      </button>
+      <button
+        onClick={() =>
+          showToast({
+            message: "feed!",
+            time: 5000,
+            theme: "feed",
+            showProgress: true,
+          })
+        }
+      >
+        feed
       </button>
     </div>
   );

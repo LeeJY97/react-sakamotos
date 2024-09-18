@@ -54,16 +54,49 @@
   border-bottom-right-radius: 5px;
   height: 3px;
   width: 100%;
-  /* transition: width 3s ease; */
 }
 
 .default {
+  color: black;
+}
+.default-bg {
   background-color: #333;
   color: white;
 }
 
+/* #F2C335 */
 .warning {
-  background-color: red;
+  color: #333;
+}
+
+.warning-bg {
+  background-color: #f2c335;
+  color: #333;
+}
+
+/* BF0426 */
+.error {
+  color: #bf0426;
+}
+.error-bg {
+  background-color: #bf0426;
+  color: white;
+}
+
+/* #20C997 */
+.success {
+  color: #20c997;
+}
+.success-bg {
+  background-color: #20c997;
+  color: rgb(0, 0, 0);
+}
+
+.feed {
+  color: rgb(113, 0, 219);
+}
+.feed-bg {
+  background-color: rgb(113, 0, 219);
   color: white;
 }
 
@@ -77,6 +110,15 @@
 
 .toast-close:hover {
   color: #ff6b6b;
+}
+
+.icon-wrap {
+  height: 40px;
+}
+
+.icon {
+  height: 24px;
+  width: 24px;
 }
 
 @keyframes slideIn {
