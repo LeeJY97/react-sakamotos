@@ -30,10 +30,10 @@ const ToastPortal = () => {
 
   useEffect(() => {
     const handleToastEvent = (toast) => {
+      const id = Date.now();
       const newToast = { id: Date.now(), ...toast };
 
-      console.log("toast", toast);
-
+      // setToasts((prevToasts) => [...prevToasts, { id, ...toast }]);
       setToasts((prevToasts) => {
         const updatedToasts = { ...prevToasts };
         // 특정 포지션 배열에 토스트 추가해줌
@@ -44,18 +44,6 @@ const ToastPortal = () => {
         return updatedToasts;
       });
 
-<<<<<<< HEAD
-      setTimeout(() => {
-        setToasts((prevToasts) => {
-          const updatedToasts = { ...prevToasts };
-          // 특정 포지션에서 같은 id값을 가진 toast 제거해줌
-          updatedToasts[toast.position] = updatedToasts[toast.position].filter(
-            (t) => t.id !== newToast.id
-          );
-          return updatedToasts;
-        });
-      }, toast.time);
-=======
       if(toast.time){
         setTimeout(() => {
           setToasts((prevToasts) => {
@@ -73,7 +61,6 @@ const ToastPortal = () => {
       //   setToasts((prevToasts) => {
       //     return prevToasts.filter((t) => t.id !== id);
       //   });
->>>>>>> 0a2197849eab479face8f9ad93e59e8af341ab4c
     };
   
     const unsubscribe = EventBus.subscribe("SHOW_TOAST", handleToastEvent);
@@ -81,8 +68,6 @@ const ToastPortal = () => {
     return () => unsubscribe();
   }, []);
 
-<<<<<<< HEAD
-=======
   // useEffect(() => {
   //   const handleToastEvent = (toast) => {
   //     // 삭제
@@ -103,7 +88,6 @@ const ToastPortal = () => {
   // }, []);
 
   
->>>>>>> 0a2197849eab479face8f9ad93e59e8af341ab4c
   console.log("렌더링");
   
   const handleToastRemove = (toast) => {    
@@ -124,14 +108,10 @@ const ToastPortal = () => {
         return positionToasts.length > 0 ? (
           <div className={`toast-container ${positionKey}`} key={positionKey}>
             {positionToasts.map((toast) => (
-<<<<<<< HEAD
-              <Toast key={toast.id} toast={toast} />
-=======
               <Toast key={toast.id} toast={toast} onRemove={() => handleToastRemove(toast)}/>
               // <div className="toast" key={toast.id}>
               //   {toast.message}
               // </div>
->>>>>>> 0a2197849eab479face8f9ad93e59e8af341ab4c
             ))}
           </div>
         ) : null;
@@ -151,9 +131,24 @@ const Toast = ({ toast, onRemove }) => {
 
   const getToastClass = () => {
     return toast.bg ? `${toast.theme}-bg` : toast.theme;
+
+    // if (toast.theme === "warning") {
+    //   // return toast.bg ? "warning warning-bg" : "warning";
+    //   return toast.bg ? "warning warning-bg" : "warning";
+    // } else if (toast.theme === "error") {
+    //   return "error";
+    // } else if (toast.theme === "success") {
+    //   return "success";
+    // } else if (toast.theme === "feed") {
+    //   return "feed";
+    // } else {
+    //   return "default";
+    // }
   };
 
   const toastClass = getToastClass();
+
+  console.log("progressWidth", progressWidth);
 
   return (
     // <div className={`toast ${toast.theme ? toast.theme : defaultTheme}`}>
@@ -170,24 +165,6 @@ const Toast = ({ toast, onRemove }) => {
             width: `${progressWidth}%`,
           }}
         ></div>
-      )}
-      {toast.confirm && (
-        <div>
-          <span
-            onClick={() => {
-              toast.confirm(true);
-            }}
-          >
-            예{" "}
-          </span>
-          <span
-            onClick={() => {
-              toast.confirm(false);
-            }}
-          >
-            아니오
-          </span>
-        </div>
       )}
     </div>
   );
