@@ -9,8 +9,8 @@ createRoot(document.getElementById("root")).render(
   // <StrictMode>
   <>
     <ToastPortal />
-    <JY_Test></JY_Test>
-    {/* <App /> */}
+    {/* <JY_Test></JY_Test> */}
+    <App />
   </>
   // </StrictMode>
 );
