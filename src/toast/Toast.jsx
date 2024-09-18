@@ -30,10 +30,10 @@ const ToastPortal = () => {
 
   useEffect(() => {
     const handleToastEvent = (toast) => {
-      const id = Date.now();
       const newToast = { id: Date.now(), ...toast };
 
-      // setToasts((prevToasts) => [...prevToasts, { id, ...toast }]);
+      console.log("toast", toast);
+
       setToasts((prevToasts) => {
         const updatedToasts = { ...prevToasts };
         // 특정 포지션 배열에 토스트 추가해줌
@@ -54,35 +54,11 @@ const ToastPortal = () => {
           return updatedToasts;
         });
       }, toast.time);
-
-      // setTimeout(() => {
-      //   setToasts((prevToasts) => {
-      //     return prevToasts.filter((t) => t.id !== id);
-      //   });
     };
     const unsubscribe = EventBus.subscribe("SHOW_TOAST", handleToastEvent);
 
     return () => unsubscribe();
   }, []);
-
-  // useEffect(() => {
-  //   const handleToastEvent = (toast) => {
-  //     // 삭제
-  //     setTimeout(() => {
-  //       setToasts((prevToasts) => {
-  //         const updatedToasts = {...prevToasts};
-  //         // 특정 포지션에서 같은 id값을 가진 toast 제거해줌
-  //         updatedToasts[toast.position] = updatedToasts[toast.position]
-  //         .filter(t => t.id !== newToast.id);
-  //         return updatedToasts;
-  //       })
-  //     }, toast.time);
-  //   };
-
-  //   const unsubscribe = EventBus.subscribe("SHOW_TOAST", handleToastEvent);
-
-  //   return () => unsubscribe();
-  // }, []);
 
   console.log("렌더링");
 
@@ -95,9 +71,6 @@ const ToastPortal = () => {
           <div className={`toast-container ${positionKey}`} key={positionKey}>
             {positionToasts.map((toast) => (
               <Toast key={toast.id} toast={toast} />
-              // <div className="toast" key={toast.id}>
-              //   {toast.message}
-              // </div>
             ))}
           </div>
         ) : null;
@@ -117,24 +90,9 @@ const Toast = ({ toast }) => {
 
   const getToastClass = () => {
     return toast.bg ? `${toast.theme}-bg` : toast.theme;
-
-    // if (toast.theme === "warning") {
-    //   // return toast.bg ? "warning warning-bg" : "warning";
-    //   return toast.bg ? "warning warning-bg" : "warning";
-    // } else if (toast.theme === "error") {
-    //   return "error";
-    // } else if (toast.theme === "success") {
-    //   return "success";
-    // } else if (toast.theme === "feed") {
-    //   return "feed";
-    // } else {
-    //   return "default";
-    // }
   };
 
   const toastClass = getToastClass();
-
-  console.log("progressWidth", progressWidth);
 
   return (
     // <div className={`toast ${toast.theme ? toast.theme : defaultTheme}`}>
@@ -151,6 +109,25 @@ const Toast = ({ toast }) => {
             width: `${progressWidth}%`,
           }}
         ></div>
+      )}
+      {toast.confirm && (
+        <div>
+          <span
+            onClick={() => {
+              toast.confirm(true);
+            }}
+          >
+            예{" "}
+          </span>
+          <span
+            onClick={() => {
+              toast.confirm(false);
+            }}
+          >
+            {" "}
+            아니오
+          </span>
+        </div>
       )}
     </div>
   );

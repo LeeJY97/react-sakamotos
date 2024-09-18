@@ -13,6 +13,7 @@ function App() {
             position: "top-right",
             time: 1000,
             showProgress: true,
+            bg: true,
             theme: "warning",
           })
         }
@@ -27,6 +28,7 @@ function App() {
             time: 3000,
             showProgress: false,
             theme: "error",
+            bg: true,
           })
         }
       >
