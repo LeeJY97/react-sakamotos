@@ -150,6 +150,25 @@ const Toast = ({ toast, onRemove }) => {
           }}
         ></div>
       )}
+      {toast.confirm && (
+        <div>
+          <span
+            onClick={() => {
+              toast.confirm(true);
+            }}
+          >
+            예{" "}
+          </span>
+          <span
+            onClick={() => {
+              toast.confirm(false);
+            }}
+          >
+            {" "}
+            아니오
+          </span>
+        </div>
+      )}
     </div>
   );
 };
