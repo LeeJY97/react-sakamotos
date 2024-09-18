@@ -5,10 +5,10 @@ import "./index.css";
 import Toast from "./toast/Toast.jsx";
 
 createRoot(document.getElementById("root")).render(
-  <StrictMode>
-    <>
-      <Toast />
-      <App />
-    </>
-  </StrictMode>
+  // <StrictMode>
+  <>
+    <Toast />
+    <App />
+  </>
+  // </StrictMode>
 );
