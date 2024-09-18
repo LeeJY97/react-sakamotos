@@ -127,6 +127,8 @@ showToast({
 
 ## custom style
 
+**예제**
+
 ```js
 showToast({
   message: "이런 것도 된다고?",
@@ -136,16 +138,26 @@ showToast({
       width: "500px",
       height: "100px",
     },
-    contents: {
+    font: {
       color: "red",
       fontSize: "40px",
-      imgUrl:
-        "https://item.kakaocdn.net/do/493188dee481260d5c89790036be0e664022de826f725e10df604bf1b9725cfd",
+    },
+    icon: {
+      iconUrl: "example.com",
+      width: "48px",
+      height: "48px",
     },
     progress: {
-      background: "#b35fc4",
+      background: "green",
       height: "10px",
     },
   },
 });
 ```
+
+사용자가 스타일을 직접 정의할 수 있습니다. `custom` 객체내에 정의합니다.
+
+**box**
+
+- 토스트 박스에 대한 스타일을 정의합니다.
+- 배경색, 크기 등을

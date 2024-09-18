@@ -148,7 +148,7 @@ const Toast = ({ toast, onRemove }) => {
   const getIconStyle = () => {
     const { custom } = toast;
     if (!custom || !custom.icon) return {};
-    delete custom.icon.iconUrl;
+    // delete custom.icon.iconUrl;
     return { ...custom.icon };
   };
 
@@ -156,6 +156,7 @@ const Toast = ({ toast, onRemove }) => {
   const fontStyle = getFontStyle();
   const progressStyle = getProgressStyle();
   const iconUrl = getIconUrl();
+  console.log("🚀 ~ Toast ~ iconUrl:", iconUrl);
   const iconStyle = getIconStyle();
 
   return (
