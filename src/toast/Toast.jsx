@@ -26,7 +26,7 @@ const ToastPortal = () => {
       acc[pos.position] = [];
       return acc;
     }, {})
-  );  
+  );
 
   useEffect(() => {
     const handleToastEvent = (toast) => {
@@ -44,14 +44,14 @@ const ToastPortal = () => {
         return updatedToasts;
       });
 
-      if(toast.time){
+      if (toast.time) {
         setTimeout(() => {
           setToasts((prevToasts) => {
             const updatedToasts = { ...prevToasts };
             // 특정 포지션에서 같은 id값을 가진 toast 제거해줌
-            updatedToasts[toast.position] = updatedToasts[toast.position].filter(
-              (t) => t.id !== newToast.id
-            );
+            updatedToasts[toast.position] = updatedToasts[
+              toast.position
+            ].filter((t) => t.id !== newToast.id);
             return updatedToasts;
           });
         }, toast.time);
@@ -62,43 +62,23 @@ const ToastPortal = () => {
       //     return prevToasts.filter((t) => t.id !== id);
       //   });
     };
-  
+
     const unsubscribe = EventBus.subscribe("SHOW_TOAST", handleToastEvent);
 
     return () => unsubscribe();
   }, []);
 
-  // useEffect(() => {
-  //   const handleToastEvent = (toast) => {
-  //     // 삭제
-  //     setTimeout(() => {
-  //       setToasts((prevToasts) => {
-  //         const updatedToasts = {...prevToasts};
-  //         // 특정 포지션에서 같은 id값을 가진 toast 제거해줌
-  //         updatedToasts[toast.position] = updatedToasts[toast.position]
-  //         .filter(t => t.id !== newToast.id);
-  //         return updatedToasts;
-  //       })
-  //     }, toast.time);
-  //   };
-
-  //   const unsubscribe = EventBus.subscribe("SHOW_TOAST", handleToastEvent);
-
-  //   return () => unsubscribe();
-  // }, []);
-
-  
   console.log("렌더링");
-  
-  const handleToastRemove = (toast) => {    
+
+  const handleToastRemove = (toast) => {
     setToasts((prevToasts) => {
-      const updatedToasts = { ...prevToasts };      
+      const updatedToasts = { ...prevToasts };
       updatedToasts[toast.position] = updatedToasts[toast.position].filter(
         (t) => t.id !== toast.id
       );
       return updatedToasts;
     });
-  }
+  };
 
   return createPortal(
     <div className="toast-wrap">
@@ -108,7 +88,11 @@ const ToastPortal = () => {
         return positionToasts.length > 0 ? (
           <div className={`toast-container ${positionKey}`} key={positionKey}>
             {positionToasts.map((toast) => (
-              <Toast key={toast.id} toast={toast} onRemove={() => handleToastRemove(toast)}/>
+              <Toast
+                key={toast.id}
+                toast={toast}
+                onRemove={() => handleToastRemove(toast)}
+              />
               // <div className="toast" key={toast.id}>
               //   {toast.message}
               // </div>
