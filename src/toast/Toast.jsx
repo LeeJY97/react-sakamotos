@@ -24,6 +24,7 @@ const Toast = ({
 }) => {
   const [toasts, setToasts] = useState(
     SET_POSITION.reduce((acc, pos) => {
+      // {POSITION: []}
       acc[pos.position] = [];
       return acc;
     }, {})
@@ -35,6 +36,7 @@ const Toast = ({
       // 추가
       setToasts((prevToasts) => {
         const updatedToasts = {...prevToasts};
+        // 특정 포지션 배열에 토스트 추가해줌
         updatedToasts[toast.position] = [
           ...updatedToasts[toast.position],
           newToast,
@@ -45,6 +47,7 @@ const Toast = ({
       setTimeout(() => {
         setToasts((prevToasts) => {
           const updatedToasts = {...prevToasts};
+          // 특정 포지션에서 같은 id값을 가진 toast 제거해줌
           updatedToasts[toast.position] = updatedToasts[toast.position]
           .filter(t => t.id !== newToast.id);
           return updatedToasts;
@@ -62,6 +65,7 @@ const Toast = ({
   console.log("toasts", toasts);
   return createPortal(
     <div className="toast-wrap">
+      {/* 각 위치에 대한 key를 가져와서 순회함 */}
       {Object.keys(toasts).map((positionKey) => {
         const positionToasts = toasts[positionKey];
         return positionToasts.length > 0 ? (
