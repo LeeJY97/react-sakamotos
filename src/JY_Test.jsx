@@ -3,7 +3,7 @@ import { showToast } from "./toast/showToast";
 
 const JY_Test = () => {
   const toastConfirm = (confirm) => {
-    console.log("toastConfirm", confirm);
+    // console.log("toastConfirm", confirm);
   };
   return (
     <div>
@@ -17,7 +17,7 @@ const JY_Test = () => {
             bg: true,
             theme: "warning",
             confirm: (confirm) => {
-              console.log("confirm", confirm);
+              // console.log("confirm", confirm);
             },
           })
         }

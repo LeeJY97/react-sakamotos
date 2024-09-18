@@ -1,8 +1,6 @@
 const Test = ({ toast }) => {
   const defaultTheme = "default";
 
-  console.log("toast", toast);
-
   return (
     <div className={`toast ${toast.theme ? toast.theme : defaultTheme}`}>
       {toast.message}

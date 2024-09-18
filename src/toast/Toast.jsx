@@ -68,8 +68,6 @@ const ToastPortal = () => {
     return () => unsubscribe();
   }, []);
 
-  console.log("렌더링");
-
   const handleToastRemove = (toast) => {
     setToasts((prevToasts) => {
       const updatedToasts = { ...prevToasts };
@@ -131,8 +129,6 @@ const Toast = ({ toast, onRemove }) => {
   };
 
   const toastClass = getToastClass();
-
-  console.log("progressWidth", progressWidth);
 
   return (
     // <div className={`toast ${toast.theme ? toast.theme : defaultTheme}`}>
