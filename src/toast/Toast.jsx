@@ -124,7 +124,6 @@ const Toast = ({ toast }) => {
               toast.confirm(false);
             }}
           >
-            {" "}
             아니오
           </span>
         </div>
