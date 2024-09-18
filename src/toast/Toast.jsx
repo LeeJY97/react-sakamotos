@@ -44,16 +44,18 @@ const ToastPortal = () => {
         return updatedToasts;
       });
 
-      setTimeout(() => {
-        setToasts((prevToasts) => {
-          const updatedToasts = { ...prevToasts };
-          // 특정 포지션에서 같은 id값을 가진 toast 제거해줌
-          updatedToasts[toast.position] = updatedToasts[toast.position].filter(
-            (t) => t.id !== newToast.id
-          );
-          return updatedToasts;
-        });
-      }, toast.time);
+      if(toast.time){
+        setTimeout(() => {
+          setToasts((prevToasts) => {
+            const updatedToasts = { ...prevToasts };
+            // 특정 포지션에서 같은 id값을 가진 toast 제거해줌
+            updatedToasts[toast.position] = updatedToasts[toast.position].filter(
+              (t) => t.id !== newToast.id
+            );
+            return updatedToasts;
+          });
+        }, toast.time);
+      }
 
       // setTimeout(() => {
       //   setToasts((prevToasts) => {

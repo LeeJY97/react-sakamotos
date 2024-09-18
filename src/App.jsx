@@ -82,7 +82,6 @@ function App() {
           showToast({
             message: "center-left",
             position: "center-left",
-            time: 1000,
           })
         }
       >
@@ -94,7 +93,7 @@ function App() {
           showToast({
             message: "bottom-right",
             position: "bottom-right",
-            time: 1000,
+            
           })
         }
       >
