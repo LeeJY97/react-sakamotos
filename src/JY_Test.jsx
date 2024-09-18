@@ -12,7 +12,7 @@ const JY_Test = () => {
           showToast({
             message: "top-right",
             position: "top-right",
-            time: 5000,
+            time: 50000,
             showProgress: true,
             bg: true,
             theme: "warning",
@@ -25,16 +25,20 @@ const JY_Test = () => {
                 // width: "100px",
                 // height: "100px",
               },
-              contents: {
+              font: {
                 color: "red",
                 fontSize: "40px",
-                imgUrl:
+              },
+              icon: {
+                iconUrl:
                   "https://item.kakaocdn.net/do/493188dee481260d5c89790036be0e664022de826f725e10df604bf1b9725cfd",
+                width: "44px",
+                height: "44px",
               },
               progress: {
                 background: "#b35fc4",
                 height: "10px",
-                width: "10%",
+                width: "10px",
               },
             },
           })
