@@ -26,7 +26,7 @@ const ToastPortal = () => {
       acc[pos.position] = [];
       return acc;
     }, {})
-  );
+  );  
 
   useEffect(() => {
     const handleToastEvent = (toast) => {
@@ -60,6 +60,7 @@ const ToastPortal = () => {
       //     return prevToasts.filter((t) => t.id !== id);
       //   });
     };
+  
     const unsubscribe = EventBus.subscribe("SHOW_TOAST", handleToastEvent);
 
     return () => unsubscribe();
@@ -84,7 +85,18 @@ const ToastPortal = () => {
   //   return () => unsubscribe();
   // }, []);
 
+  
   console.log("렌더링");
+  
+  const handleToastRemove = (toast) => {    
+    setToasts((prevToasts) => {
+      const updatedToasts = { ...prevToasts };      
+      updatedToasts[toast.position] = updatedToasts[toast.position].filter(
+        (t) => t.id !== toast.id
+      );
+      return updatedToasts;
+    });
+  }
 
   return createPortal(
     <div className="toast-wrap">
@@ -94,7 +106,7 @@ const ToastPortal = () => {
         return positionToasts.length > 0 ? (
           <div className={`toast-container ${positionKey}`} key={positionKey}>
             {positionToasts.map((toast) => (
-              <Toast key={toast.id} toast={toast} />
+              <Toast key={toast.id} toast={toast} onRemove={() => handleToastRemove(toast)}/>
               // <div className="toast" key={toast.id}>
               //   {toast.message}
               // </div>
@@ -108,7 +120,7 @@ const ToastPortal = () => {
 };
 
 // Toast
-const Toast = ({ toast }) => {
+const Toast = ({ toast, onRemove }) => {
   const [progressWidth, setProgressWidth] = useState(100);
 
   useEffect(() => {
@@ -138,7 +150,7 @@ const Toast = ({ toast }) => {
 
   return (
     // <div className={`toast ${toast.theme ? toast.theme : defaultTheme}`}>
-    <div className={`toast ${toastClass}`}>
+    <div className={`toast ${toastClass}`} onClick={onRemove}>
       <div>
         <img className="icon" src={errorIcon}></img>
       </div>
