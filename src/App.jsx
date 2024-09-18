@@ -11,7 +11,7 @@ function App() {
           showToast({
             message: "top-right",
             position: "top-right",
-            time: 1000,
+            time: 5000,
             showProgress: true,
             theme: "warning",
           })
@@ -71,7 +71,7 @@ function App() {
           showToast({
             message: "center-center",
             position: "center-center",
-            time: 10000,
+            time: 2000,
           })
         }
       >
@@ -82,7 +82,6 @@ function App() {
           showToast({
             message: "center-left",
             position: "center-left",
-            time: 1000,
           })
         }
       >
@@ -94,7 +93,7 @@ function App() {
           showToast({
             message: "bottom-right",
             position: "bottom-right",
-            time: 1000,
+            
           })
         }
       >
@@ -116,7 +115,7 @@ function App() {
           showToast({
             message: "bottom-left",
             position: "bottom-left",
-            time: 1000,
+            time: 10000,
           })
         }
       >
