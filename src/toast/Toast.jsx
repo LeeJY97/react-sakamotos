@@ -114,63 +114,59 @@ const Toast = ({ toast, onRemove }) => {
   console.log("totototototos ==>", toast);
   const getToastClass = () => {
     return toast.bg ? `${toast.theme}-bg` : toast.theme;
-
-    // if (toast.theme === "warning") {
-    //   // return toast.bg ? "warning warning-bg" : "warning";
-    //   return toast.bg ? "warning warning-bg" : "warning";
-    // } else if (toast.theme === "error") {
-    //   return "error";
-    // } else if (toast.theme === "success") {
-    //   return "success";
-    // } else if (toast.theme === "feed") {
-    //   return "feed";
-    // } else {
-    //   return "default";
-    // }
   };
 
   const toastClass = getToastClass();
   console.log(toast);
 
   const getBoxStyle = () => {
-    if (!toast.custom) return {};
-    return { ...toast.custom.box };
+    const { custom } = toast;
+    if (!custom || !custom.box) return {};
+    return { ...custom.box };
   };
 
   const getFontStyle = () => {
-    if (!toast.custom) return {};
-    return {
-      color: toast.custom.contents.color,
-      fontSize: toast.custom.contents.fontSize,
-    };
+    const { custom } = toast;
+    if (!custom || !custom.font) return {};
+    return { ...custom.font };
   };
 
   const getProgressStyle = () => {
-    if (!toast.custom) return {};
-    delete toast.custom.progress.width;
-    return { ...toast.custom.progress };
+    const { custom } = toast;
+    if (!custom || !custom.progress) return {};
+    const { progress = {} } = custom;
+    delete progress.width;
+    return { ...progress };
   };
 
-  const getImgStyle = () => {
-    if (!toast.custom) return {};
-    return {};
+  const getIconUrl = () => {
+    const { custom } = toast;
+    const iconUrl = custom?.icon?.iconUrl;
+    return iconUrl || iconResult(toast.theme);
+  };
+
+  const getIconStyle = () => {
+    const { custom } = toast;
+    if (!custom || !custom.icon) return {};
+    delete custom.icon.iconUrl;
+    return { ...custom.icon };
   };
 
   const boxStyle = getBoxStyle();
   const fontStyle = getFontStyle();
   const progressStyle = getProgressStyle();
-  const imgStyle = getImgStyle();
-  // const imgUrl = 삼항연산자
+  const iconUrl = getIconUrl();
+  const iconStyle = getIconStyle();
 
   return (
-    // <div className={`toast ${toast.theme ? toast.theme : defaultTheme}`}>
     <div
       className={`toast ${toastClass}`}
       onClick={onRemove}
       style={{ ...boxStyle }}
     >
       <div>
-        <img className="icon" src={iconResult(toast.theme)}/>
+        {/* <img className="icon" src={iconResult(toast.theme)}/> */}
+        <img className="icon" src={iconUrl} style={{ ...iconStyle }} />
       </div>
       <div>
         <span style={{ ...fontStyle }}>{toast.message}</span>
