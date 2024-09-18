@@ -161,7 +161,7 @@ function App() {
                   }
                 >
                   progress
-                </button>
+                </button>                
               </dd>
             </dl>
             <dl>
@@ -177,6 +177,90 @@ function App() {
                   }
                 >
                   time
+                </button>
+              </dd>
+            </dl>
+            <dl>
+              <dt>CUSTOM</dt>
+              <dd className="dd-custom">
+                <button
+                  onClick={() =>
+                    showToast({
+                      message: "background + font (size, color)",
+                      position: "top-center",
+                      time: 100000,
+                      custom: {
+                        box: {
+                          background: "#333",
+                        },
+                        font: {
+                          color: "white",
+                          fontSize: "26px",
+                        },
+                        icon: {
+                          iconUrl:
+                            "https://item.kakaocdn.net/do/493188dee481260d5c89790036be0e664022de826f725e10df604bf1b9725cfd",
+                          width: "44px",
+                          height: "44px",
+                        },
+                      },
+                    })
+                  }
+                >
+                  background + font (size, color)
+                </button>
+                <button
+                  onClick={() =>
+                    showToast({
+                      message: "icon",
+                      position: "top-center",
+                      time: 100000,
+                      custom: {
+                        icon: {
+                          iconUrl:
+                            "https://item.kakaocdn.net/do/493188dee481260d5c89790036be0e664022de826f725e10df604bf1b9725cfd",
+                          width: "44px",
+                          height: "44px",
+                        },
+                      },
+                    })
+                  }
+                >
+                  icon (url, size)
+                </button>
+                <button 
+                  onClick={() =>
+                    showToast({
+                      position: "top-center",
+                      message: "custom progress bg",
+                      showProgress: true,
+                      time: 100000,
+                      custom: {
+                        progress: {
+                          background: "#b35fc4",
+                        },
+                      },
+                    })
+                  }
+                >
+                  progress color
+                </button>
+                <button 
+                  onClick={() =>
+                    showToast({
+                      position: "top-center",
+                      message: "custom progress height",
+                      showProgress: true,
+                      time: 100000,
+                      custom: {
+                        progress: {                          
+                          height: "10px",
+                        },
+                      },
+                    })
+                  }
+                >
+                  progress height
                 </button>
               </dd>
             </dl>

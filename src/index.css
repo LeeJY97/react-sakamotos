@@ -115,6 +115,12 @@ h1 {
   align-items: center;
   gap: 5px;
 }
+.exampleBox dl dd.dd-custom {
+  flex-direction: column;
+}
+.exampleBox dl dd.dd-custom button {
+  width: 100%;
+}
 .exampleBox dl dd button {
   flex: 1;
   cursor: pointer;
