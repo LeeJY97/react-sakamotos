@@ -84,13 +84,13 @@
   display: flex;
   position: relative;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   gap: 10px;
-  padding: 10px 15px;
+  padding: 10px 35px 10px 15px;
   border-radius: 5px;
   min-width: 200px;
   background: #fff;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);  
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); 
 }
 .toast-confirm {
   flex-direction: column;
@@ -268,11 +268,29 @@
   cursor: pointer;
   font-size: 14px;
 }
-
 .toast-close:hover {
   color: #ff6b6b;
 }
-
+.toast-btn-close {
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  background: transparent;
+  border: 0px;
+  padding: 0;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 0;
+}
+.toast-confirm .toast-btn-close {
+  top: 15px;
+  right: 15px;
+  transform: none;
+}
+.toast-btn-close:hover svg {
+  transition: all .25s ease;
+  transform: scale(1.2);
+}
 .icon-wrap {
   height: 40px;
 }

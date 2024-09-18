@@ -160,9 +160,11 @@ const Toast = ({ toast, onRemove }) => {
   return (
     <div
       className={`toast ${toastClass ? `${toastClass}` : ""} ${toast.confirm ? "toast-confirm" : ""}`}
-      onClick={onRemove}
       style={{ ...boxStyle }}
     >
+      <button type="button" className="toast-btn-close" onClick={onRemove}>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="black" viewBox="0 0 50 50" width="15px" height="15px"><path d="M 9.15625 6.3125 L 6.3125 9.15625 L 22.15625 25 L 6.21875 40.96875 L 9.03125 43.78125 L 25 27.84375 L 40.9375 43.78125 L 43.78125 40.9375 L 27.84375 25 L 43.6875 9.15625 L 40.84375 6.3125 L 25 22.15625 Z"/></svg>
+      </button>
       <div>
         {/* <img className="icon" src={iconResult(toast.theme)}/> */}
         <img className="icon" src={iconUrl} style={{ ...iconStyle }} />

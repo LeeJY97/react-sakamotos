@@ -1,8 +1,9 @@
 import React from "react";
 import Toast from "./toast/Toast";
 import { showToast } from "./toast/showToast";
+import MarkDown from "./MarkDown";
 
-function App() {
+function App() {  
   return (
     <div className="App">
       <h1>React Event Bus Toast Example</h1>
@@ -348,6 +349,8 @@ function App() {
           </div>          
         </div>        
       </div>
+
+
     </div>
   );
 }
