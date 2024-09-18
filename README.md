@@ -12,6 +12,7 @@ JS 기반의 pub/sub 패턴으로 구현한 토스트 라이브러리입니다. 
   - [progressBar](#progressbar)
   - [style](#style)
   - [confirm](#confirm)
+  - [custom style](#custom-style)
 
 ## message
 
@@ -123,3 +124,28 @@ showToast({
 사용자의 선택을 전달 받을 수 있습니다.
 `confirm` 속성을 지정하면 자동으로 사용자에게 선택 폼이 추가된 토스트 알림이 나타납니다.
 사용자의 선택이 콜백함수에 전달됩니다. (`true` / `false`)
+
+## custom style
+
+```js
+showToast({
+  message: "이런 것도 된다고?",
+  custom: {
+    box: {
+      background: "#333",
+      width: "500px",
+      height: "100px",
+    },
+    contents: {
+      color: "red",
+      fontSize: "40px",
+      imgUrl:
+        "https://item.kakaocdn.net/do/493188dee481260d5c89790036be0e664022de826f725e10df604bf1b9725cfd",
+    },
+    progress: {
+      background: "#b35fc4",
+      height: "10px",
+    },
+  },
+});
+```
