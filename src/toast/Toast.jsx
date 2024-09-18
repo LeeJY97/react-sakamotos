@@ -2,8 +2,8 @@ import "./toast.css";
 import { useEffect, useState } from "react";
 import EventBus from "../pubsub/eventBus";
 import { createPortal } from "react-dom";
-import errorIcon from "./icons/error.png";
 import { SET_POSITION } from "./util/position";
+import { iconResult } from "./util/iconResult";
 
 // 기존 토스트 라이브러리가 제공하는 기능은 무조건 있어야함
 // +@ (1차)
@@ -111,6 +111,7 @@ const Toast = ({ toast, onRemove }) => {
     setProgressWidth(0);
   }, []);
 
+  console.log("totototototos ==>", toast);
   const getToastClass = () => {
     return toast.bg ? `${toast.theme}-bg` : toast.theme;
 
@@ -129,14 +130,15 @@ const Toast = ({ toast, onRemove }) => {
   };
 
   const toastClass = getToastClass();
+  console.log(toast);
 
   return (
     // <div className={`toast ${toast.theme ? toast.theme : defaultTheme}`}>
     <div className={`toast ${toastClass}`} onClick={onRemove}>
       <div>
-        <img className="icon" src={errorIcon}></img>
+        <img className="icon" src={iconResult(toast.theme)}/>
       </div>
-      {toast.message}
+      <div dangerouslySetInnerHTML={{ __html: toast.message }} />
       {toast.showProgress && (
         <div
           className="toast-progress-bar"
