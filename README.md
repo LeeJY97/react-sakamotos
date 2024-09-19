@@ -45,7 +45,7 @@ showToast({
 
 ```js
 showToast({
-  message: "좌측 상단에 표시됩니다.",
+  message: "우측 상단에 표시됩니다.",
   position: "top-right",
 });
 ```
