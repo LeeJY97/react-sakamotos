@@ -24,7 +24,11 @@ footer, header, hgroup, menu, nav, section {
 	display: block;
 }
 body {
-	line-height: 1;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+	line-height: 1.4;
+  word-break: keep-all;
 }
 ol, ul {
 	list-style: none;
@@ -141,7 +145,8 @@ h1 {
   background: #efefef;
   border-radius: 10px;
   margin: 60px 0 0 0;
-  padding: 30px;  
+  padding: 30px;    
+  box-shadow: .5px .5px 10px rgba(0,0,0,.15);
 }
 #read-me dl {
   display: flex;
@@ -177,7 +182,10 @@ h1 {
   z-index: 1;
   transform: translateY(-50%);  
 }
-#read-me dl dd {}
+#read-me dl dd img {
+  width: 100%;
+  max-width: 600px;
+}
 #read-me .link-area {
   border: 1px solid #50b5df;
   border-radius: 10px;
@@ -207,4 +215,33 @@ h1 {
 #read-me .link-area li a:hover {
   color: #fff;
   background: #008ed4;
+}
+#read-me .dot-list {  
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 20px 0 0 0;
+  padding: 10px 0;
+}
+#read-me .dot-list strong {
+  display: block;
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0 0 5px;
+  padding: 0 0 5px;
+  border-bottom: 1px solid #e1e1e1;
+}
+#read-me .dot-list li {
+  position: relative;
+  padding-left: 15px;
+}
+#read-me .dot-list li:before {
+  content: '';
+  position: absolute;
+  top: 5px;
+  left: 0;
+  width: 5px;
+  height: 5px;
+  border-radius: 100%;
+  background-color: #000;
 }

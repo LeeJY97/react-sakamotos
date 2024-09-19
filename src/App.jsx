@@ -1,4 +1,11 @@
 import { showToast } from "./toast/showToast";
+import imgTime from "/src/assets/img/ex-time.png";
+import imgStyle from "/src/assets/img/ex-style.png"
+import imgProgressbar from "/src/assets/img/ex-progressbar.png"
+import imgPosition from "./assets/img/ex-position.png"
+import imgMessage from "./assets/img/ex-message.png"
+import imgCustomStyle from "./assets/img/ex-custom-style.png"
+import imgConfirm from "./assets/img/ex-confirm.png"
 
 function App() {
   return (
@@ -380,31 +387,100 @@ function App() {
           <dt><span>message</span></dt>
           <dd>
             <p className="desc">토스트에 출력될 메시지를 작성할 수 있습니다.</p>
+            <img src={imgMessage} alt="" />
           </dd>
         </dl>
         <dl id="time">
           <dt><span>time</span></dt>
-          <dd></dd>
+          <dd>
+            <p className="desc">토스트가 보여질 시간(ms)을 정할 수 있습니다. 지정하지 않을 경우 토스트를 클릭해야 사라집니다.</p>
+            <img src={imgTime} alt="" />
+          </dd>
         </dl>
         <dl id="position">
           <dt><span>position</span></dt>
-          <dd></dd>
+          <dd>
+            <p className="desc"><em>position</em> 속성을 지정해줄 수 있습니다. <em>상하-좌우</em> 순서로 지정해 줄 수 있습니다.</p>
+            <ul className="dot-list">
+              <strong>top</strong>
+              <li>left</li>
+              <li>center</li>
+              <li>right</li>
+            </ul>
+            <ul className="dot-list">
+              <strong>center</strong>
+              <li>left</li>
+              <li>center</li>
+              <li>right</li>
+            </ul>
+            <ul className="dot-list">
+              <strong>bottom</strong>
+              <li>left</li>
+              <li>center</li>
+              <li>right</li>
+            </ul>
+          <img src={imgPosition} alt="" />
+          </dd>
         </dl>
         <dl id="progressBar">
           <dt><span>progressBar</span></dt>
-          <dd></dd>
+          <dd>
+            <p className="desc">프로그래스 바는 토스트 알림이 남은 시간에 따라 표시 됩니다. 기본값은 <em>false</em>입니다.</p>
+            <img src={imgProgressbar} alt="" />
+          </dd>
         </dl>
         <dl id="style">
           <dt><span>style</span></dt>
-          <dd></dd>
+          <dd>
+            <ul className="dot-list">
+              <strong>theme</strong>
+              <li>테마를 지정할 수 있습니다.</li>
+              <li>기본 테마는 default입니다.</li>
+              <li>텍스트와, 아이콘 등이 테마에 따라 변경됩니다.</li>
+              <li><em>default</em>, <em>success</em>, <em>feed</em>, <em>warning</em>, <em>error</em> 테마가 있습니다.</li>
+            </ul>
+            <ul className="dot-list">
+              <strong>bg</strong>
+              <li>배경 색을 표시할 수 있습니다.</li>
+              <li>기본 값은 false입니다.</li>
+              <li>theme 속성의 값에 따라 배경 색이 지정됩니다.</li>
+            </ul>
+            <img src={imgStyle} alt="" />
+          </dd>
         </dl>
         <dl id="confirm">
           <dt><span>confirm</span></dt>
-          <dd></dd>
+          <dd>
+            <p className="desc">사용자의 선택을 전달 받을 수 있습니다. <em>confirm</em> 속성을 지정하면 자동으로 사용자에게 선택 폼이 추가된 토스트 알림이 나타납니다. 사용자의 선택이 콜백함수에 전달됩니다. (<em>true</em> / <em>false</em>)</p>
+            <img src={imgConfirm} alt="" />
+          </dd>
         </dl>
         <dl id="custom-style">
           <dt><span>custom style</span></dt>
-          <dd></dd>
+          <dd>
+            <p>사용자가 스타일을 직접 정의할 수 있습니다. <em>custom</em> 객체내에 정의합니다.</p>
+            <ul className="dot-list">
+              <strong>box</strong>
+              <li>토스트 박스에 대한 스타일을 정의합니다.</li>
+              <li>background, width, height 등을 지정할 수 있습니다.</li>
+            </ul>
+            <ul className="dot-list">
+              <strong>font</strong>
+              <li>메시지(텍스트)에 대한 스타일을 정의합니다.</li>
+              <li>color, fontSize 등을 지정할 수 있습니다.</li>              
+            </ul>
+            <ul className="dot-list">
+              <strong>icon</strong>
+              <li>아이콘(이미지)에 대한 스타일을 정의합니다.</li>
+              <li>이미지경로, width, height 등을 지정할 수 있습니다.</li>
+            </ul>
+            <ul className="dot-list">
+              <strong>progress</strong>
+              <li>프로그래스바에 대한 스타일을 정의합니다.</li>
+              <li>background, height 등을 지정할 수 있습니다.</li>
+            </ul>
+            <img src={imgCustomStyle} alt="" />
+          </dd>
         </dl>
       </div>
 
@@ -412,7 +488,6 @@ function App() {
     </div>
   );
 }
-
 
 
 export default App;
