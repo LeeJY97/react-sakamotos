@@ -133,8 +133,23 @@ function App() {
                       position: "top-center",
                       showProgress: true,
                       confirm: (condition) => {
-                        console.log("condition", condition);
-                        // 결과를 보여주는 toast 띄워보기?
+                        if (condition) {
+                          showToast({
+                            message: "좋습니다!",
+                            position: "",
+                            showProgress: true,
+                            time: 10000,
+                            theme: "success",
+                          });
+                        } else {
+                          showToast({
+                            message: "이런...",
+                            position: "",
+                            showProgress: true,
+                            time: 10000,
+                            theme: "error",
+                          });
+                        }
                       },
                     })
                   }

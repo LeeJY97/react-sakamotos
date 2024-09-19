@@ -15,7 +15,12 @@ const ToastPortal = () => {
 
   useEffect(() => {
     const handleToastEvent = (toast) => {
-      const newToast = { id: Date.now(), ...toast };
+      const newToast = {
+        id: Date.now(),
+        ...toast,
+        position: toast.position ? toast.position : "top-right",
+      };
+      toast.position = toast.position ? toast.position : "top-right";
 
       setToasts((prevToasts) => {
         const updatedToasts = { ...prevToasts };
@@ -99,6 +104,7 @@ const Toast = ({ toast, onRemove }) => {
   const iconStyle = getIconStyle();
 
   const handleClose = (condition) => {
+    console.log("condition", condition);
     typeof toast.confirm === "function" && toast.confirm(condition);
     onRemove();
   };
