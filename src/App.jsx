@@ -362,57 +362,83 @@ function App() {
 
       <div id="read-me">
         <dl>
-          <dt><span>options (목차)</span></dt>
+          <dt>
+            <span>options (목차)</span>
+          </dt>
           <dd>
             <ol className="link-area">
               <strong>React Custom Toast</strong>
-              <li><a href="#message">1. message</a></li>
-              <li><a href="#time">2. time</a></li>
-              <li><a href="#position">3. position</a></li>
-              <li><a href="#progressBar">4. progressBar</a></li>
-              <li><a href="#style">5. style</a></li>
-              <li><a href="#confirm">6. confirm</a></li>
-              <li><a href="#custom-style">7. custom style</a></li>
+              <li>
+                <a href="#message">1. message</a>
+              </li>
+              <li>
+                <a href="#time">2. time</a>
+              </li>
+              <li>
+                <a href="#position">3. position</a>
+              </li>
+              <li>
+                <a href="#progressBar">4. progressBar</a>
+              </li>
+              <li>
+                <a href="#style">5. style</a>
+              </li>
+              <li>
+                <a href="#confirm">6. confirm</a>
+              </li>
+              <li>
+                <a href="#custom-style">7. custom style</a>
+              </li>
             </ol>
           </dd>
         </dl>
         <dl id="message">
-          <dt><span>message</span></dt>
+          <dt>
+            <span>message</span>
+          </dt>
           <dd>
             <p className="desc">토스트에 출력될 메시지를 작성할 수 있습니다.</p>
           </dd>
         </dl>
         <dl id="time">
-          <dt><span>time</span></dt>
+          <dt>
+            <span>time</span>
+          </dt>
           <dd></dd>
         </dl>
         <dl id="position">
-          <dt><span>position</span></dt>
+          <dt>
+            <span>position</span>
+          </dt>
           <dd></dd>
         </dl>
         <dl id="progressBar">
-          <dt><span>progressBar</span></dt>
+          <dt>
+            <span>progressBar</span>
+          </dt>
           <dd></dd>
         </dl>
         <dl id="style">
-          <dt><span>style</span></dt>
+          <dt>
+            <span>style</span>
+          </dt>
           <dd></dd>
         </dl>
         <dl id="confirm">
-          <dt><span>confirm</span></dt>
+          <dt>
+            <span>confirm</span>
+          </dt>
           <dd></dd>
         </dl>
         <dl id="custom-style">
-          <dt><span>custom style</span></dt>
+          <dt>
+            <span>custom style</span>
+          </dt>
           <dd></dd>
         </dl>
       </div>
-
-
     </div>
   );
 }
-
-
 
 export default App;
