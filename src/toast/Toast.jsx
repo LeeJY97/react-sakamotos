@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import EventBus from "../pubsub/eventBus";
 import { createPortal } from "react-dom";
 import { SET_POSITION } from "./util/position";
-import { iconResult } from "./util/iconResult";
 import createStyleFunctions from "./util/styles";
 
 const ToastPortal = () => {
