@@ -1,5 +1,3 @@
-import React from "react";
-import Toast from "./toast/Toast";
 import { showToast } from "./toast/showToast";
 
 function App() {
@@ -134,8 +132,9 @@ function App() {
                       message: "confirm",
                       position: "top-center",
                       showProgress: true,
-                      confirm: (confirm) => {
-                        // console.log("confirm", confirm);
+                      confirm: (condition) => {
+                        console.log("condition", condition);
+                        // 결과를 보여주는 toast 띄워보기?
                       },
                     })
                   }

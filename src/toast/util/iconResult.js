@@ -1,15 +1,14 @@
 export const iconResult = (icon) => {
-  console.log(icon);
-  switch(icon) {
-    case "error" :
+  switch (icon) {
+    case "error":
       return `/src/toast/icons/error.png`;
-    case "feed" :
+    case "feed":
       return `/src/toast/icons/feed.png`;
-    case "success" : 
+    case "success":
       return `/src/toast/icons/success.png`;
-    case "warning" : 
+    case "warning":
       return `/src/toast/icons/warning.png`;
     default:
-      return "/src/toast/icons/sparta.jpeg"; 
+      return "/src/toast/icons/sparta.jpeg";
   }
 }
