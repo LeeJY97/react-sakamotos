@@ -4,7 +4,7 @@ import App from "./App.jsx";
 import "./index.css";
 import ToastPortal from "./toast/Toast.jsx";
 
-createRoot(document.getElementById("root")).render(
+createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <>
       <ToastPortal />
