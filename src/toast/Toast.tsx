@@ -112,7 +112,7 @@ const Toast = ({ toast, onRemove }: ToastProps) => {
   return (
     <div
       className={`toast ${toastClass ? `${toastClass}` : ""} ${
-        toast.confirm ? "toast-confirm" : ""
+        !!toast.confirm ? "toast-confirm" : ""
       }`}
       style={{ ...boxStyle }}
     >
@@ -147,7 +147,7 @@ const Toast = ({ toast, onRemove }: ToastProps) => {
           }}
         ></div>
       )}
-      {toast.confirm && (
+      {!!toast.confirm && (
         <div className="toast-btn-area">
           <button
             className="btn-yes"
