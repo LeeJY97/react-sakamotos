@@ -1,7 +1,7 @@
 const EventBus = () => {
   const topics = new Map();
 
-  const subscribe = (topic, listener) => {
+  const subscribe = (topic: string, listener: () => {}) => {
     if (!topics.has(topic)) {
       topics.set(topic, []);
     }
@@ -10,16 +10,16 @@ const EventBus = () => {
     return () => {
       const listeners = topics.get(topic);
       listeners.splice(listeners.indexOf(listener), 1);
-    }
-  }
+    };
+  };
 
-  const publish = (topic, data) => {
+  const publish = (topic: string, data: any) => {
     if (!topics.has(topic)) return;
-    topics.get(topic).forEach((listener) => listener(data));
-  }
+    topics.get(topic).forEach((listener: any) => listener(data));
+  };
 
   return { subscribe, publish };
-}
+};
 
 const bus = EventBus();
 export default bus;

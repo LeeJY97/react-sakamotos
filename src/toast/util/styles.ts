@@ -1,4 +1,5 @@
-const iconResult = (icon) => {
+import { Toast as IToast } from "interfaces/Toast";
+const iconResult = (icon: string) => {
   switch (icon) {
     case "error":
       return `/src/toast/icons/error.png`;
@@ -11,13 +12,12 @@ const iconResult = (icon) => {
     default:
       return "/src/toast/icons/sparta.jpeg";
   }
-}
+};
 
-const createStyleFunctions = (toast) => {
+const createStyleFunctions = (toast: IToast) => {
   const getToastClass = () => {
     return toast.bg ? `${toast.theme}-bg` : toast.theme;
   };
-
 
   const getBoxStyle = () => {
     const { custom } = toast;
@@ -58,7 +58,7 @@ const createStyleFunctions = (toast) => {
     getProgressStyle,
     getIconUrl,
     getIconStyle,
-  }
-}
+  };
+};
 
 export default createStyleFunctions;

@@ -4,6 +4,7 @@ import EventBus from "../pubsub/eventBus";
 import { createPortal } from "react-dom";
 import { SET_POSITION } from "./util/position";
 import createStyleFunctions from "./util/styles";
+import { Toast as IToast, ToastProps } from "interfaces/Toast";
 
 const ToastPortal = () => {
   const [toasts, setToasts] = useState(
@@ -49,7 +50,7 @@ const ToastPortal = () => {
     return () => unsubscribe();
   }, []);
 
-  const handleToastRemove = (toast) => {
+  const handleToastRemove = (toast: IToast) => {
     setToasts((prevToasts) => {
       const updatedToasts = { ...prevToasts };
       updatedToasts[toast.position] = updatedToasts[toast.position].filter(
@@ -65,7 +66,7 @@ const ToastPortal = () => {
         const positionToasts = toasts[positionKey];
         return positionToasts.length > 0 ? (
           <div className={`toast-container ${positionKey}`} key={positionKey}>
-            {positionToasts.map((toast) => (
+            {positionToasts.map((toast: IToast) => (
               <Toast
                 key={toast.id}
                 toast={toast}
@@ -80,7 +81,7 @@ const ToastPortal = () => {
   );
 };
 
-const Toast = ({ toast, onRemove }) => {
+const Toast = ({ toast, onRemove }: ToastProps) => {
   const [progressWidth, setProgressWidth] = useState(100);
 
   useEffect(() => {
@@ -103,8 +104,7 @@ const Toast = ({ toast, onRemove }) => {
   const iconUrl = getIconUrl();
   const iconStyle = getIconStyle();
 
-  const handleClose = (condition) => {
-    console.log("condition", condition);
+  const handleClose = (condition: boolean) => {
     typeof toast.confirm === "function" && toast.confirm(condition);
     onRemove();
   };
