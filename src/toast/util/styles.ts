@@ -1,16 +1,18 @@
 import { Toast as IToast } from "types/Toast";
+import { errorIcon } from "../icons/";
+
 const iconResult = (icon: string) => {
   switch (icon) {
     case "error":
-      return `/src/toast/icons/error.png`;
+      return `../icons/error.png`;
     case "feed":
-      return `/src/toast/icons/feed.png`;
+      return `../icons/feed.png`;
     case "success":
-      return `/src/toast/icons/success.png`;
+      return `../icons/success.png`;
     case "warning":
-      return `/src/toast/icons/warning.png`;
+      return `../icons/warning.png`;
     default:
-      return "/src/toast/icons/sparta.jpeg";
+      return "../icons/sparta.jpeg";
   }
 };
 
