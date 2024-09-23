@@ -1,6 +1,6 @@
 import "./toast.css";
 import { useEffect, useState } from "react";
-import EventBus from "../pubsub/eventBus";
+import EventBus from "../pubsub/EventBus";
 import { createPortal } from "react-dom";
 import { SET_POSITION } from "./util/position";
 import createStyleFunctions from "./util/styles";
