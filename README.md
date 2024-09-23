@@ -13,6 +13,7 @@ JS 기반의 pub/sub 패턴으로 구현한 토스트 라이브러리입니다. 
   - [style](#style)
   - [confirm](#confirm)
   - [custom style](#custom-style)
+  - [Contributors](#contributors)
 
 ## message
 
@@ -176,3 +177,16 @@ showToast({
 
 - 프로그래스바에 대한 스타일을 정의합니다.
 - `background`, `height` 등을 지정할 수 있습니다.
+
+## Contributors
+
+<table>
+  <tr>
+    <td align="center"><a href='https://github.com/rarrit'><img src="https://avatars.githubusercontent.com/za0012" width="100px" width="100px" /></a></td>
+    <td align="center"><a href='https://github.com/LeeJY97'><img src="https://avatars.githubusercontent.com/LeeJY97" width="100px" /></a></td>
+  </tr>
+  <tr>
+    <td align="center"><b>김민규</b></td>
+    <td align="center"><b>이준열</b></td>
+  </tr>
+</table>
