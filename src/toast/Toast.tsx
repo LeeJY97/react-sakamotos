@@ -141,7 +141,7 @@ const Toast = ({ toast, onRemove }: ToastProps) => {
         <div
           className="toast-progress-bar"
           style={{
-            transition: `width ${toast.time / 1000}s ease`,
+            transition: `width ${toast.time ? toast.time / 1000 : 0}s ease`,
             width: `${progressWidth}%`,
             ...progressStyle,
           }}
