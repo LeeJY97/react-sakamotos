@@ -1,5 +1,5 @@
 import { Toast as IToast } from "types/Toast";
-import errorIcon from "/src/toast/icons/error.png";
+import errorIcon from "../icons/error.png";
 
 const iconResult = (icon: string) => {
   switch (icon) {
