@@ -1,9 +1,9 @@
 import { Toast as IToast } from "types/Toast";
 import errorIcon from "../icons/error.png";
-import feedIcon from "../icons/error.png";
-import successIcon from "../icons/error.png";
-import warningIcon from "../icons/error.png";
-import defaultIcon from "../icons/error.png";
+import feedIcon from "../icons/feed.png";
+import successIcon from "../icons/success.png";
+import warningIcon from "../icons/warning.png";
+import defaultIcon from "../icons/sparta.png";
 
 const iconResult = (icon: string) => {
   switch (icon) {
