@@ -5,6 +5,7 @@ import "./index.css";
 import ToastPortal from "./toast/Toast.jsx";
 
 createRoot(document.getElementById("root")!).render(
+  // document.getElementById("root")가 undefined가 아니다!
   <StrictMode>
     <>
       <ToastPortal />

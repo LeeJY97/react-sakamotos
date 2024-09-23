@@ -4,7 +4,7 @@ import EventBus from "../pubsub/eventBus";
 import { createPortal } from "react-dom";
 import { SET_POSITION } from "./util/position";
 import createStyleFunctions from "./util/styles";
-import { Toast as IToast, ToastProps } from "interfaces/Toast";
+import { Toast as IToast, ToastProps } from "types/Toast";
 
 const ToastPortal = () => {
   const [toasts, setToasts] = useState(

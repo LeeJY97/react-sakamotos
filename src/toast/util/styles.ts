@@ -1,4 +1,4 @@
-import { Toast as IToast } from "interfaces/Toast";
+import { Toast as IToast } from "types/Toast";
 const iconResult = (icon: string) => {
   switch (icon) {
     case "error":
