@@ -6,18 +6,31 @@ import imgPosition from "./assets/img/ex-position.png";
 import imgMessage from "./assets/img/ex-message.png";
 import imgCustomStyle from "./assets/img/ex-custom-style.png";
 import imgConfirm from "./assets/img/ex-confirm.png";
+import imgSakamoto from "./assets/img/skamoto-img.png";
 
 function App() {
   return (
     <div className="App">
-      <h1>React Event Bus Toast Example</h1>
 
-      <div></div>
+      <div className="introWrap">
+        <div className="inner">
+          <div className="leftArea">
+            <img src={imgSakamoto} alt="" />
+          </div>
+          <div className="rightArea">
+            <h1>Sakamotos</h1>
+            <p>JS 기반의 pub/sub 패턴으로 구현한 토스트 라이브러리입니다. <br/>
+            다양한 포지션, 테마, 프로그레스 바, 그리고 확인(컨펌) 기능 등을 제공합니다.</p>
+            <a href="#exampleWrap" type="button">Let's Start</a>
+          </div>
+        </div>
+      </div>
 
-      <div className="exampleWrap">
+      <div className="exampleWrap" id="exampleWrap">
+        <h2>EXAMPLE</h2>
         <div className="exampleBox exampleBox01">
-          <h2>POSITION</h2>
-          <div className="example">
+          <h3>POSITION</h3>
+          <div className="example">            
             <dl>
               <dt>TOP</dt>
               <dd>
@@ -128,7 +141,7 @@ function App() {
           </div>
         </div>
         <div className="exampleBox exampleBox02">
-          <h2>OPTION</h2>
+          <h3>OPTION</h3>
           <div className="example">
             <dl>
               <dt>CONFIRM</dt>
@@ -197,7 +210,93 @@ function App() {
                   time
                 </button>
               </dd>
+            </dl>            
+          </div>
+        </div>
+        <div className="exampleBox exampleBox03">
+          <h3>TYPE</h3>
+          <div className="example">
+            <dl>
+              <dt>SUCCESS</dt>
+              <dd>
+                <button
+                  onClick={() =>
+                    showToast({
+                      message: "SUCCESS !",
+                      position: "top-right",
+                      showProgress: true,
+                      theme: "success",
+                      time: 2000,
+                      bg: true,
+                    })
+                  }
+                >
+                  SUCCESS !
+                </button>
+              </dd>
             </dl>
+            <dl>
+              <dt>WARNING</dt>
+              <dd>
+                <button
+                  onClick={() =>
+                    showToast({
+                      message: "WARNING !",
+                      position: "top-right",
+                      showProgress: true,
+                      theme: "warning",
+                      time: 5000,
+                      bg: true,
+                    })
+                  }
+                >
+                  WARNING !
+                </button>
+              </dd>
+            </dl>
+            <dl>
+              <dt>ERROR</dt>
+              <dd>
+                <button
+                  onClick={() =>
+                    showToast({
+                      message: "ERROR !",
+                      position: "top-right",
+                      showProgress: true,
+                      theme: "error",
+                      time: 5000,
+                      bg: true,
+                    })
+                  }
+                >
+                  ERROR !
+                </button>
+              </dd>
+            </dl>
+            <dl>
+              <dt>FEED</dt>
+              <dd>
+                <button
+                  onClick={() =>
+                    showToast({
+                      message: "FEED !",
+                      position: "top-right",
+                      showProgress: true,
+                      theme: "feed",
+                      time: 5000,
+                      bg: true,
+                    })
+                  }
+                >
+                  FEED !
+                </button>
+              </dd>
+            </dl>
+          </div>
+        </div>
+        <div className="exampleBox exampleBox04">
+          <h3>CUSTOM</h3>
+          <div className="example">            
             <dl>
               <dt>CUSTOM</dt>
               <dd className="dd-custom">
@@ -279,87 +378,6 @@ function App() {
                   }
                 >
                   progress height
-                </button>
-              </dd>
-            </dl>
-          </div>
-        </div>
-        <div className="exampleBox exampleBox03">
-          <h2>TYPE</h2>
-          <div className="example">
-            <dl>
-              <dt>SUCCESS</dt>
-              <dd>
-                <button
-                  onClick={() =>
-                    showToast({
-                      message: "SUCCESS !",
-                      position: "top-right",
-                      showProgress: true,
-                      theme: "success",
-                      time: 2000,
-                      bg: true,
-                    })
-                  }
-                >
-                  SUCCESS !
-                </button>
-              </dd>
-            </dl>
-            <dl>
-              <dt>WARNING</dt>
-              <dd>
-                <button
-                  onClick={() =>
-                    showToast({
-                      message: "WARNING !",
-                      position: "top-right",
-                      showProgress: true,
-                      theme: "warning",
-                      time: 5000,
-                      bg: true,
-                    })
-                  }
-                >
-                  WARNING !
-                </button>
-              </dd>
-            </dl>
-            <dl>
-              <dt>ERROR</dt>
-              <dd>
-                <button
-                  onClick={() =>
-                    showToast({
-                      message: "ERROR !",
-                      position: "top-right",
-                      showProgress: true,
-                      theme: "error",
-                      time: 5000,
-                      bg: true,
-                    })
-                  }
-                >
-                  ERROR !
-                </button>
-              </dd>
-            </dl>
-            <dl>
-              <dt>FEED</dt>
-              <dd>
-                <button
-                  onClick={() =>
-                    showToast({
-                      message: "FEED !",
-                      position: "top-right",
-                      showProgress: true,
-                      theme: "feed",
-                      time: 5000,
-                      bg: true,
-                    })
-                  }
-                >
-                  FEED !
                 </button>
               </dd>
             </dl>
@@ -530,6 +548,18 @@ function App() {
               <li>background, height 등을 지정할 수 있습니다.</li>
             </ul>
             <img src={imgCustomStyle} alt="" />
+            <ul className="dot-list">
+              <strong>CSS 속성 사용</strong>
+              <li>위의 예시에서 사용한 background, color 등 뿐만 아니라 CSS의 모든 속성을 사용할 수 있습니다.</li>
+            </ul>
+            <ul className="dot-list">
+              <strong>예시 (CSS 속성)</strong>
+              <li>다음과 같은 속성들도 자유롭게 사용 가능합니다</li>
+              - objectFit<br/>
+              - fontWeight<br/>
+              - letterSpacing<br/>
+              - 그리고 더 많은 CSS 속성들...
+            </ul>
           </dd>
         </dl>
       </div>
