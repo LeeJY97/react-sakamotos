@@ -18,6 +18,8 @@ https://custom-toast-ts.vercel.app/
   - [style](#style)
   - [confirm](#confirm)
   - [custom style](#custom-style)
+    - [CSS 속성 사용](#css-속성-사용)
+    - [예시](#예시)
   - [Contributors](#contributors)
 
 ## message
@@ -149,7 +151,7 @@ showToast({
       fontSize: "40px",
     },
     icon: {
-      iconUrl: "example.com",
+      iconUrl: "example.com/qwer",
       width: "48px",
       height: "48px",
     },
@@ -182,6 +184,21 @@ showToast({
 
 - 프로그래스바에 대한 스타일을 정의합니다.
 - `background`, `height` 등을 지정할 수 있습니다.
+
+### CSS 속성 사용
+
+위의 예시에서 사용한 `background`, `color` 등 뿐만 아니라 **CSS의 모든 속성을 사용할 수 있습니다**.
+
+### 예시
+
+다음과 같은 속성들도 자유롭게 사용 가능합니다:
+
+- `objectFit`
+- `fontWeight`
+- `letterSpacing`
+- 그리고 더 많은 CSS 속성들...
+
+이 라이브러리를 활용하여 다양한 스타일링을 적용하세요!
 
 ## Contributors
 
