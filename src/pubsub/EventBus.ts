@@ -1,7 +1,7 @@
 const EventBus = () => {
   const topics = new Map();
 
-  const subscribe = (topic: string, listener: () => {}) => {
+  const subscribe = (topic: string, listener: Function) => {
     if (!topics.has(topic)) {
       topics.set(topic, []);
     }

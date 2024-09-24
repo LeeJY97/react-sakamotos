@@ -7,26 +7,36 @@ import createStyleFunctions from "./util/styles";
 import { Toast as IToast, ToastProps } from "types/Toast";
 
 const ToastPortal = () => {
-  const [toasts, setToasts] = useState(
+  interface Position {
+    position: string    
+  }
+  interface Pos {
+    // [key: string]: Position[];    
+    [key: string]: IToast[];    
+  }
+
+  const [toasts, setToasts] = useState<Pos>(
     SET_POSITION.reduce((acc, pos) => {
       acc[pos.position] = [];
       return acc;
-    }, {})
+    }, {} as Pos) // 초기값 {}에 대해 Pos 타입을 명시 
   );
 
   useEffect(() => {
-    const handleToastEvent = (toast) => {
-      const newToast = {
-        id: Date.now(),
+    const handleToastEvent = (toast: IToast) => {
+      const newToast: IToast = {
+        id: Date.now().toString(),
         ...toast,
         position: toast.position ? toast.position : "top-right",
       };
-      toast.position = toast.position ? toast.position : "top-right";
+      
+      const toastPosition: string = toast.position ? toast.position : "top-right";
 
       setToasts((prevToasts) => {
         const updatedToasts = { ...prevToasts };
-        updatedToasts[toast.position] = [
-          ...updatedToasts[toast.position],
+        
+        updatedToasts[toastPosition] = [
+          ...updatedToasts[toastPosition],
           newToast,
         ];
         return updatedToasts;
@@ -36,8 +46,9 @@ const ToastPortal = () => {
         setTimeout(() => {
           setToasts((prevToasts) => {
             const updatedToasts = { ...prevToasts };
-            updatedToasts[toast.position] = updatedToasts[
-              toast.position
+            
+            updatedToasts[toastPosition] = updatedToasts[
+              toastPosition
             ].filter((t) => t.id !== newToast.id);
             return updatedToasts;
           });
@@ -53,7 +64,8 @@ const ToastPortal = () => {
   const handleToastRemove = (toast: IToast) => {
     setToasts((prevToasts) => {
       const updatedToasts = { ...prevToasts };
-      updatedToasts[toast.position] = updatedToasts[toast.position].filter(
+      const toastPosition: string = toast.position ? toast.position : "top-right";
+      updatedToasts[toastPosition] = updatedToasts[toastPosition].filter(
         (t) => t.id !== toast.id
       );
       return updatedToasts;
