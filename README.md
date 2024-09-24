@@ -1,4 +1,4 @@
-# React Custom-toast
+# React Sakamotos
 
 JS 기반의 pub/sub 패턴으로 구현한 토스트 라이브러리입니다. 다양한 포지션, 테마, 프로그레스 바, 그리고 확인(컨펌) 기능 등을 제공합니다.
 
@@ -8,7 +8,7 @@ https://custom-toast-ts.vercel.app/
 
 ## options (목차)
 
-- [React Custom-toast](#react-custom-toast)
+- [React Sakamotos](#react-sakamotos)
   - [무려 공식 문서](#무려-공식-문서)
   - [options (목차)](#options-목차)
   - [message](#message)
