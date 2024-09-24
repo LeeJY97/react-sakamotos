@@ -2,9 +2,14 @@
 
 JS 기반의 pub/sub 패턴으로 구현한 토스트 라이브러리입니다. 다양한 포지션, 테마, 프로그레스 바, 그리고 확인(컨펌) 기능 등을 제공합니다.
 
+## 무려 공식 문서
+
+https://custom-toast-ts.vercel.app/
+
 ## options (목차)
 
 - [React Custom-toast](#react-custom-toast)
+  - [무려 공식 문서](#무려-공식-문서)
   - [options (목차)](#options-목차)
   - [message](#message)
   - [time](#time)
@@ -13,6 +18,7 @@ JS 기반의 pub/sub 패턴으로 구현한 토스트 라이브러리입니다. 
   - [style](#style)
   - [confirm](#confirm)
   - [custom style](#custom-style)
+  - [Contributors](#contributors)
 
 ## message
 
@@ -176,3 +182,16 @@ showToast({
 
 - 프로그래스바에 대한 스타일을 정의합니다.
 - `background`, `height` 등을 지정할 수 있습니다.
+
+## Contributors
+
+<table>
+  <tr>
+    <td align="center"><a href='https://github.com/rarrit'><img src="https://avatars.githubusercontent.com/za0012" width="100px" width="100px" /></a></td>
+    <td align="center"><a href='https://github.com/LeeJY97'><img src="https://avatars.githubusercontent.com/LeeJY97" width="100px" /></a></td>
+  </tr>
+  <tr>
+    <td align="center"><b>김민규</b></td>
+    <td align="center"><b>이준열</b></td>
+  </tr>
+</table>

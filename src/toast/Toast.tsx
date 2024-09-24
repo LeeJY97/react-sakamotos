@@ -1,6 +1,6 @@
 import "./toast.css";
 import { useEffect, useState } from "react";
-import EventBus from "../pubsub/eventBus";
+import EventBus from "../pubsub/EventBus";
 import { createPortal } from "react-dom";
 import { SET_POSITION } from "./util/position";
 import createStyleFunctions from "./util/styles";
@@ -153,7 +153,7 @@ const Toast = ({ toast, onRemove }: ToastProps) => {
         <div
           className="toast-progress-bar"
           style={{
-            transition: `width ${toast.time / 1000}s ease`,
+            transition: `width ${toast.time ? toast.time / 1000 : 0}s ease`,
             width: `${progressWidth}%`,
             ...progressStyle,
           }}
